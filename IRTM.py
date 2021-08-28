@@ -50,7 +50,7 @@ def soundex(word):
             try:
                 word.remove('0')
             except Exception as e:
-                print(f'Processing Error: {e}')
+                pass
 
         # Add the header in
         word.insert(0, head)
