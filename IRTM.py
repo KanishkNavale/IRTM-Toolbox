@@ -1,4 +1,13 @@
-# Generate Soundex codes for token
+###############################################################################
+# LIBRARY IMPORTS
+###############################################################################
+import nltk
+
+
+###############################################################################
+# SOUNDEX
+###############################################################################
+
 def soundex(word):
     """
     Description,
@@ -71,3 +80,17 @@ def soundex(word):
 
     else:
         print('Input not valid for soundex processing!')
+
+###############################################################################
+# TOKENIZE
+###############################################################################
+
+def tokenize(word):
+    tokens = nltk.tokenize.word_tokenize(word)
+    tokens = [word for word in tokens if word.isalpha()]
+    tokens = [word.lower() for word in tokens]
+    tokens = [word for word in tokens if not word in nltk.corpus.stopwords.words("english")]
+    lemma = nltk.stem.WordNetLemmatizer()
+    tokens = [lemma.lemmatize(word, pos="v") for word in tokens]
+    tokens = [lemma.lemmatize(word, pos="n") for word in tokens]
+    return tokens
