@@ -14,7 +14,7 @@ jobs:
       with:
         python-version: '3.x'
     - name: Build wheels
-      run: setup.py
+      run: python -m build
     - name: Install twine
       run: |
         pip install twine
