@@ -7,6 +7,10 @@ Author: Kanishk Navale
 Author-email: navalekanishk@gmail.com
 License: MIT
 Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
@@ -14,11 +18,16 @@ License-File: LICENSE
 
 This repository holds functions pivotal for IRTM processing. This repo. is staged for continuous development.
 
+## Quick Install using 'pip/pip3' & GitHub
+
+```bash
+pip install git+https://github.com/KanishkNavale/IRTM-Toolbox.git
+```
 
 ## Import Module
 
 ```python
-from IRTM import *
+from irtm.toolbox import *
 ```
 
 ## Using Functions

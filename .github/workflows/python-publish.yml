@@ -20,13 +20,6 @@ jobs:
       with:
         python-version: '3.x'
 
-    # Check builds of the package
-    - name: Install builds
-      run: |
-        pip install --upgrade build
-    - name: Build wheels
-      run: python -m build
-
     # Install Twine
     - name: Install twine
       run: |

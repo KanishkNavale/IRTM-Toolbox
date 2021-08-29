@@ -2,11 +2,16 @@
 
 This repository holds functions pivotal for IRTM processing. This repo. is staged for continuous development.
 
+## Quick Install using 'pip/pip3' & GitHub
+
+```bash
+pip install git+https://github.com/KanishkNavale/IRTM-Toolbox.git
+```
 
 ## Import Module
 
 ```python
-from IRTM import *
+from irtm.toolbox import *
 ```
 
 ## Using Functions
