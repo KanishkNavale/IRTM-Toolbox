@@ -2,7 +2,7 @@ Metadata-Version: 2.1
 Name: irtm
 Version: 0.0.1
 Summary: This package holds pivotal functions for IRTM.
-Home-page: git@github.com:KanishkNavale/IRTM-Toolbox.git
+Home-page: https://github.com/KanishkNavale/IRTM-Toolbox.git
 Author: Kanishk Navale
 Author-email: navalekanishk@gmail.com
 License: MIT
