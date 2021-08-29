@@ -37,3 +37,10 @@ jobs:
           pip install --upgrade build
       - name: Build wheels
         run: python -m build
+
+      # Install the of the package
+      - name: Install package
+        run: python setup.py install
+
+      # Check library setup
+      
