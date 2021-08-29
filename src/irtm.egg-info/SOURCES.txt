@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/irtm/irtm.py
+src/irtm.egg-info/PKG-INFO
+src/irtm.egg-info/SOURCES.txt
+src/irtm.egg-info/dependency_links.txt
+src/irtm.egg-info/not-zip-safe
+src/irtm.egg-info/top_level.txt
