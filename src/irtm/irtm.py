@@ -1,7 +1,9 @@
 ###############################################################################
 # LIBRARY IMPORTS
 ###############################################################################
-import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 
 
 ###############################################################################
@@ -87,11 +89,11 @@ def soundex(word):
 ###############################################################################
 
 def tokenize(word):
-    tokens = nltk.tokenize.word_tokenize(word)
+    tokens = word_tokenize(word)
     tokens = [word for word in tokens if word.isalpha()]
     tokens = [word.lower() for word in tokens]
-    tokens = [word for word in tokens if not word in nltk.corpus.stopwords.words("english")]
-    lemma = nltk.stem.WordNetLemmatizer()
+    tokens = [word for word in tokens if not word in stopwords.words("english")]
+    lemma = WordNetLemmatizer()
     tokens = [lemma.lemmatize(word, pos="v") for word in tokens]
     tokens = [lemma.lemmatize(word, pos="n") for word in tokens]
     return tokens
