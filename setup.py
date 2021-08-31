@@ -10,10 +10,10 @@ setuptools.setup(
                  name='irtm',
 
                  # Version ID
-                 version='0.0.2',
+                 version='0.0.3',
 
                  # Package Descriptions
-                 description='A toolbox for Information Retreival & Text Mining.',
+                 description='A toolbox for Information Retrieval & Text Mining.',
                  long_description=long_description,
                  long_description_content_type="text/markdown",
                  url='https://github.com/KanishkNavale/IRTM-Toolbox.git',
@@ -27,7 +27,9 @@ setuptools.setup(
 
                  # Setup Prequisites
                  install_requires=[
-                                    'nltk==3.5'
+                                    'numpy',
+                                    'nltk',
+                                    'scikit_learn'
                                   ],
 
                  # Package Build Source Pointer
