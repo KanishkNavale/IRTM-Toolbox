@@ -10,7 +10,7 @@ setuptools.setup(
                  name='irtm',
 
                  # Version ID
-                 version='0.0.3',
+                 version='0.0.4',
 
                  # Package Descriptions
                  description='A toolbox for Information Retrieval & Text Mining.',
