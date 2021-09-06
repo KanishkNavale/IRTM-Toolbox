@@ -99,4 +99,24 @@ from irtm.toolbox import *
                                  'bool': 0.689853175081446}
     ```
 
+5. Page Rank: Computes page rank from a chain matrix
+
+    ```python
+    chain_matrix = np.array([[0, 0, 1],
+                             [1, 0, 1],
+                             [0, 1, 0]])
+    print(page_rank(chain_matrix))
+    rank, TPM = page_rank(chain_matrix, return_TransMatrix=True)
+    print(f'Page Rank: {rank} \nTransition Probablity Matrix: \n{TPM}')
+    ```
+
+    ```bash
+    >>> [0.0047 0.997  0.0767]
+    >>> Page Rank: [0.0047 0.997  0.0767] 
+        Transition Probablity Matrix: 
+        [[0.03333333 0.03333333 0.93333333]
+        [0.48333333 0.03333333 0.48333333]
+        [0.03333333 0.93333333 0.03333333]]
+    ```
+
 

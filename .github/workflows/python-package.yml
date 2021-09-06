@@ -44,4 +44,4 @@ jobs:
 
       # Check library setup
       - name: Import Test
-        run: python -c "from irtm.toolbox import soundex"
+        run: python -c "from irtm.toolbox import *"

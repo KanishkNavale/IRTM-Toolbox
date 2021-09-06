@@ -12,7 +12,6 @@ from collections import deque
 ###############################################################################
 # SOUNDEX
 ###############################################################################
-
 def soundex(word):
     """
     Description,
@@ -89,7 +88,6 @@ def soundex(word):
 ###############################################################################
 # TOKENIZE
 ###############################################################################
-
 def tokenize(word):
     """
     Description:
@@ -114,7 +112,6 @@ def tokenize(word):
 ###############################################################################
 # Vectorizer
 ###############################################################################
-
 def vectorize(texts, dict=None, enable_Idf=True,
               normalize='l2', max_dim=None,
               smooth=True, weightedTf=True, return_features=False):
@@ -205,3 +202,66 @@ def predict_weights(X, y, epochs, verbose=False, dict=None):
         mapping[dict[i]] = weights[i]
 
     return mapping
+
+
+###############################################################################
+# Page Rank
+###############################################################################
+def page_rank(tensor, teleportation=0.1, epochs=1000, return_TransMatrix=False):
+    """
+    Desciption,
+        Computes Page Rank from Chain Matrix
+
+    Args:
+        tensor ([np.matrix]): Markov Chain Matrix
+        teleportation (float, optional): Teleportation Rate. Defaults to 0.1.
+        epochs (int, optional): Epochs of visits. Defaults to 1000.
+        return_TeleMatrix (bool, optional): Returns Transition Matix. Defaults to False.
+
+    Returns:
+        rank: rank matrix
+    """
+    # Normalize the rows with N = no. of non-zero elements in row
+    matrix = []
+    for i in range(tensor.shape[0]):
+        row = tensor[i].copy()
+        N = np.count_nonzero(row)
+        if N != 0:
+            row = row / N
+        matrix.append(row)
+    tensor = np.vstack(matrix)
+
+    # Divide the tensor by (1 - teleportation rate)
+    tensor = (1 - teleportation) * tensor
+
+    # Make the rows sum to '1'
+    for i in range(tensor.shape[0]):
+        row = tensor[i].copy()
+        row += (1.0 - np.sum(row)) / row.shape[0]
+        if np.sum(row) == 1.0:
+            pass
+        else:
+            print(row)
+        tensor[i] = row
+
+    TransMatrix = tensor.copy()
+
+    # Find Eigen Vector of the Matrix
+    rank = (1 / tensor.shape[0]) * np.ones(tensor.shape[0])
+    prev_rank = np.zeros(tensor.shape[0])
+
+    for i in range(epochs):
+        rank = rank @ np.power(TransMatrix, i+1)
+
+        if np.array_equal(rank, prev_rank) or \
+           np.linalg.norm(rank - prev_rank) <= 1e-6:
+            break
+        else:
+            prev_rank = rank.copy()
+
+    rank /= np.linalg.norm(rank)
+
+    if return_TransMatrix:
+        return np.around(rank, 4), TransMatrix
+    else:
+        return np.around(rank, 4)
