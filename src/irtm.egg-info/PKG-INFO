@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: irtm
-Version: 0.0.3
+Version: 0.0.4
 Summary: A toolbox for Information Retrieval & Text Mining.
 Home-page: https://github.com/KanishkNavale/IRTM-Toolbox.git
 Author: Kanishk Navale
@@ -105,7 +105,9 @@ from irtm.toolbox import *
     chain_matrix = np.array([[0, 0, 1],
                              [1, 0, 1],
                              [0, 1, 0]])
+
     print(page_rank(chain_matrix))
+    
     rank, TPM = page_rank(chain_matrix, return_TransMatrix=True)
     print(f'Page Rank: {rank} \nTransition Probablity Matrix: \n{TPM}')
     ```
